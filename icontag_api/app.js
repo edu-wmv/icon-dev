@@ -23,5 +23,7 @@ app.use((req, res, next) => {
 });
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
-app.post("/test", db.test);
+app.get("/test", (req, res) => {
+    res.status(200).json({ message: 'OK' });
+});
 app.listen(port, () => { console.log(`⚡️[server]: Server is running on port ${port}`); });

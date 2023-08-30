@@ -4,7 +4,7 @@ require('dotenv').config({ silent: true });
 const express = require("express");
 const app = express();
 const db = require('./query');
-const port = 80;
+const port = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 app.use((req, res, next) => {

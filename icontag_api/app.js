@@ -3,11 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require('dotenv').config({ silent: true });
 const express = require("express");
 const app = express();
-const logger = require('morgan');
 const db = require('./query');
 const port = process.env.PORT;
-app.use(logger('dev'));
 app.use(express.static('public'));
+console.log(process.env.API_KEY)
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Key");

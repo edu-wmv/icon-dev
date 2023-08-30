@@ -125,7 +125,12 @@ function toHoursAndMinutes(totalSeconds) {
     const minutes = totalMinutes % 60;
     return { h: hours, m: minutes, s: seconds };
 }
+
+const test = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log('test')
+});
 module.exports = {
     insertData,
     setPoint,
+    test
 };

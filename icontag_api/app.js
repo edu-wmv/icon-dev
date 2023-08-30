@@ -4,7 +4,7 @@ require('dotenv').config({ silent: true });
 const express = require("express");
 const app = express();
 const db = require('./query');
-const port = 80;
+const port = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 app.use((req, res, next) => {
@@ -23,5 +23,7 @@ app.use((req, res, next) => {
 });
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
-app.post("/test", db.test);
+app.get("/test", (req, res) => {
+    res.status(200).json({ message: 'OK' });
+});
 app.listen(port, () => { console.log(`⚡️[server]: Server is running on port ${port}`); });

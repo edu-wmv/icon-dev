@@ -1,6 +1,7 @@
+### Rewrite Rules Added by CyberPanel Rewrite Rule Generator
+
 RewriteEngine On
 RewriteCond %{HTTPS}  !=on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteBase /
-RewriteRule ^/?(.*)?$ http://127.0.0.1:3000/$1 [P,L]
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+### End CyberPanel Generated Rules.

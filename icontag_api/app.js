@@ -4,14 +4,9 @@ require('dotenv').config();
 const express = require("express");
 const app = express();
 const db = require('./query');
-<<<<<<< HEAD
 const port = 3000;
-//app.use(express.static('public'));
-app.use(express.json());
-=======
-const port = process.env.PORT;
 app.use(express.static('public'));
->>>>>>> 35817ab78bf8d78817a68b2023f1ac7f197cec6b
+app.use(express.json());
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Key");

@@ -1,17 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require('dotenv').config({ silent: true });
-var fs = require('fs');
-var https = require('https');
-var privateKey = fs.readFileSync('sslcert/server.key', 'utf8');
-var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
-var credentials = { key: privateKey, cert: certificate };
+require('dotenv').config();
 const express = require("express");
 const app = express();
-const logger = require('morgan');
 const db = require('./query');
 const port = process.env.PORT;
-app.use(logger('dev'));
 app.use(express.static('public'));
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -28,11 +21,11 @@ app.use((req, res, next) => {
     }
 });
 app.get("/", (req, res) => {
-    res.send("Using https server");
+    res.send("Using server");
 });
+app.post("/test", db.test);
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
-const httpsServer = https.createServer(credentials, app);
-httpsServer.listen(port, () => {
+app.listen(port, () => {
     console.log(`⚡️[server]: Server is running on port ${port}`);
 });

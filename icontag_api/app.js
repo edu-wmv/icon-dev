@@ -1,14 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require('dotenv').config({ silent: true });
-var fs = require('fs');
-var https = require('https');
-var privateKey = fs.readFileSync('sslcert/server.key', 'utf8');
-var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
-var credentials = { key: privateKey, cert: certificate };
+require('dotenv').config();
 const express = require("express");
 const app = express();
-const logger = require('morgan');
 const db = require('./query');
 <<<<<<< HEAD
 const port = 3000;
@@ -16,7 +10,6 @@ const port = 3000;
 app.use(express.json());
 =======
 const port = process.env.PORT;
-app.use(logger('dev'));
 app.use(express.static('public'));
 >>>>>>> 35817ab78bf8d78817a68b2023f1ac7f197cec6b
 app.use((req, res, next) => {
@@ -34,11 +27,11 @@ app.use((req, res, next) => {
     }
 });
 app.get("/", (req, res) => {
-    res.send("Using https server");
+    res.send("Using server");
 });
+app.post("/test", db.test);
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
-const httpsServer = https.createServer(credentials, app);
-httpsServer.listen(port, () => {
+app.listen(port, () => {
     console.log(`⚡️[server]: Server is running on port ${port}`);
 });

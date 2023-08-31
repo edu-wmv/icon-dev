@@ -21,6 +21,9 @@ app.use((req, res, next) => {
         next();
     }
 });*/
+app.get("/", (req, res) => {
+    res.status(200).json({ message: 'main' });
+})
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
 app.get("/test", (req, res) => {

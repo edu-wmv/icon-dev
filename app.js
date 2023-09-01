@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require('dotenv').config();
 const express = require("express");
 const app = express();
 const db = require('./query');
-const port = 3000;
+const port = process.env.PORT;
 app.use(express.static('public'));
 app.use(express.json());
 app.use((req, res, next) => {
@@ -21,12 +20,10 @@ app.use((req, res, next) => {
         next();
     }
 });
-app.get("/", (req, res) => {
-    res.send("Using server");
-});
-app.post("/test", db.test);
+app.get("/", (req, res) => { res.send("Using server") });
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
+
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running on port ${port}`);
 });

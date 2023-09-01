@@ -20,7 +20,7 @@ app.use((req, res, next) => {
         next();
     }
 });
-app.get("/", (req, res) => { res.send("Using server") });
+app.get("/test", (req, res) => { res.send("Hello World") });
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
 

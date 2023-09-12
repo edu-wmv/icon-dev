@@ -161,7 +161,6 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.get("/test", (req, res) => { res.send("Hello World") });
-app.get("/teste", (req, res) => { res.status(200).json("Hello World") });
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
 

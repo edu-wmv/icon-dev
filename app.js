@@ -142,10 +142,6 @@ function toHoursAndMinutes(totalSeconds) {
 }
 
 // MIDDLEWARE
-<<<<<<< HEAD
-=======
-app.use(express.static('public'));
->>>>>>> cbf1ea5338ba831ef26ad3512e21217cb82b3c22
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Key");
@@ -162,23 +158,12 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-<<<<<<< HEAD
-app.get("/", (req, res) => { res.send("Homepage") });
-app.get("/test", (req, res) => { res.send("Hello World") });
-app.post("/insertData", insertData);
-app.post("/setPoint", setPoint);
-=======
 app.get("/test", (req, res) => { res.send("Hello World") });
 app.get("/teste", (req, res) => { res.status(200).json("Hello World") });
 app.post("/insertData", db.insertData);
 app.post("/setPoint", db.setPoint);
->>>>>>> cbf1ea5338ba831ef26ad3512e21217cb82b3c22
 
 // SERVER
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running on port ${port}`);
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> cbf1ea5338ba831ef26ad3512e21217cb82b3c22

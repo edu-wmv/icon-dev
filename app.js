@@ -162,6 +162,7 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.get("/test", (req, res) => { res.send("Hello World") });
+app.get("/json", (req, res) => { res.json("JSON!") });
 app.post("/insertData", insertData);
 app.post("/setPoint", setPoint);
 

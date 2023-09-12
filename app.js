@@ -5,6 +5,7 @@ const uuid_1 = require("uuid");
 const app = express();
 const port = process.env.PORT;
 
+
 // DATABASE CONNECTION
 const production = {
   host: process.env.DB_HOST_PROD,
@@ -161,8 +162,8 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.get("/test", (req, res) => { res.send("Hello World") });
-app.post("/insertData", db.insertData);
-app.post("/setPoint", db.setPoint);
+app.post("/insertData", insertData);
+app.post("/setPoint", setPoint);
 
 // SERVER
 app.listen(port, () => {

@@ -1,21 +1,12 @@
 {
-  "name": "icontag_backend",
+  "name": "api_icontag",
   "version": "1.0.0",
-  "description": "Express server for iconTag",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["express", "mysql", "nodejs", "backend", "server"],
-  "author": "Eduardo Monteiro",
-  "contributors": [{
-    "name": "Breno Paz",
-    "email": "brenluz@gmail.com"
-  }],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/edu-wmv/icontag_backend"
-  },
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",

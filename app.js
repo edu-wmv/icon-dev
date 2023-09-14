@@ -33,7 +33,7 @@ const insertData = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
   try {
       const exists = yield checkUid(uid);
       if (exists) {
-          res.status(200).json({ statusCode: 200, message: `Iconico já cadastrado`, code: 'already-exists' });
+          res.status(200).json({ statusCode: 200, message: `Iconico ja cadastrado`, code: 'already-exists' });
       }
       else {
           pool.query(`INSERT INTO iconicos (name, uid)
@@ -103,7 +103,7 @@ const setPoint = (req, res) => {
                                            SET hours = ADDTIME(hours, '${time}')
                                            WHERE id = ${userId}`, (error) => { if (error)
                               throw error; });
-                          res.status(200).json({ statusCode: 200, message: `Até logo ${userName}!`, code: 'bye' });
+                          res.status(200).json({ statusCode: 200, message: `Ate logo ${userName}!`, code: 'bye' });
                       });
                   }
                   catch (error) {
@@ -114,7 +114,7 @@ const setPoint = (req, res) => {
           });
       }
       else {
-          res.status(200).json({ statusCode: 200, message: `Iconico não cadastrado`, code: 'not-found' });
+          res.status(200).json({ statusCode: 200, message: `Iconico nao cadastrado`, code: 'not-found' });
       }
   });
 };

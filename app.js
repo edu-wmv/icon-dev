@@ -33,14 +33,14 @@ const insertData = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
   try {
       const exists = yield checkUid(uid);
       if (exists) {
-          res.status(200).json(`Iconico já cadastrado`);
+          res.status(200).json({ statusCode: 200, message: `Iconico já cadastrado`, code: 'already-exists' });
       }
       else {
           pool.query(`INSERT INTO iconicos (name, uid)
                VALUES ('${name}', ${uid})`, (error, results) => {
               if (error)
                   throw error;
-              res.status(201).json(`Iconico ${name} adicionado com o ID ${results.insertId}`);
+              res.status(201).json({ statusCode: 201, message: `Iconico cadastrado com sucesso`, code: 'success' });
           });
       }
   }
@@ -85,7 +85,7 @@ const setPoint = (req, res) => {
                   });
               });
               if (last_point == false) {
-                  res.status(200).json(`Bem vindo ${userName}!`);
+                  res.status(200).json({ statusCode: 200, message: `Bem vindo ${userName}!`, code: 'welcome' });
               }
               else {
                   try {
@@ -103,18 +103,18 @@ const setPoint = (req, res) => {
                                            SET hours = ADDTIME(hours, '${time}')
                                            WHERE id = ${userId}`, (error) => { if (error)
                               throw error; });
-                          res.status(200).json(`Até logo ${userName}!`);
+                          res.status(200).json({ statusCode: 200, message: `Até logo ${userName}!`, code: 'bye' });
                       });
                   }
                   catch (error) {
                       console.log(error);
-                      res.status(500).json(`Erro interno ao atualizar horas do usuario`);
+                      res.status(500).json({ statusCode: 500, message: `Erro interno`, code: 'error' });
                   }
               }
           });
       }
       else {
-          res.status(200).json(`Iconico não encontrado`);
+          res.status(200).json({ statusCode: 200, message: `Iconico não cadastrado`, code: 'not-found' });
       }
   });
 };

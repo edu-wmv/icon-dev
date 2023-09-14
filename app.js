@@ -163,8 +163,8 @@ app.use((req, res, next) => {
 // ROUTES
 app.get("/test", (req, res) => { res.send("Hello World") });
 app.get("/json", (req, res) => { res.json("JSON!") });
-app.get("/insertData", insertData);
-app.get("/setPoint", setPoint);
+app.post("/insertData", insertData);
+app.post("/setPoint", setPoint);
 
 // SERVER
 app.listen(port, () => {

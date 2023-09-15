@@ -85,7 +85,7 @@ const setPoint = (req, res) => {
                   });
               });
               if (last_point == false) {
-                  res.status(200).json({ statusCode: 200, message: `Bem vindo ${userName}!`, code: 'welcome' });
+                  res.status(200).json({ statusCode: 200, message: `Bem vindo ${userName}!`, code: 'welcome', user: `${userName}` });
               }
               else {
                   try {
@@ -103,7 +103,7 @@ const setPoint = (req, res) => {
                                            SET hours = ADDTIME(hours, '${time}')
                                            WHERE id = ${userId}`, (error) => { if (error)
                               throw error; });
-                          res.status(200).json({ statusCode: 200, message: `Ate logo ${userName}!`, code: 'bye' });
+                          res.status(200).json({ statusCode: 200, message: `Ate logo ${userName}!`, code: 'bye', user: `${userName}` });
                       });
                   }
                   catch (error) {
